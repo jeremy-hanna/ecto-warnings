@@ -13,6 +13,13 @@ mix phx.gen.schema Comment comments content:string post_id:references:posts
 ... add associations to the new Ecto.Schema...
 ```
 
-(2) Add ExMachina
+(2) Add ExMachina and test case with preloads
 
+See [the test cases](https://github.com/jeremy-hanna/ecto-warnings/blob/master/test/my_app/post_test.exs)
+
+(3) Run tests and view warnings
+
+```
+mix test
+```
 
