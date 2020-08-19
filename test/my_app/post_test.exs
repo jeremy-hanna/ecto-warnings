@@ -31,4 +31,18 @@ defmodule MyApp.PostTest do
 
     assert %Post{} = post
   end
+
+  test "it does not emit a warning when Preloads an inserted record" do
+    post =
+      insert(:post, %{
+        title: "A very snazzy title",
+        views: 7,
+        comments: [
+          build(:comment)
+        ]
+      })
+      |> MyApp.Repo.preload(:comments)
+
+    assert %Post{} = post
+  end
 end
